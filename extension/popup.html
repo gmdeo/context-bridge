@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Bridge</title>
+  <style>
+    /* Agent G: Clean, trustworthy UI */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1f2937;
+      background: #ffffff;
+    }
+    
+    .header {
+      padding: 16px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    
+    .content {
+      padding: 16px;
+    }
+    
+    .button {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 120ms ease;
+    }
+    
+    .button-primary {
+      background: #2563eb;
+      color: white;
+    }
+    
+    .button-primary:hover {
+      background: #1d4ed8;
+    }
+    
+    .button-primary:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+    
+    .button-secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+    
+    .button-secondary:hover {
+      background: #e5e7eb;
+    }
+    
+    .status {
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    
+    .status-success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status-error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .status-info {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .footer {
+      padding: 12px 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
+    }
+    
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Context Bridge</h1>
+    <div class="subtitle">Sync conversation context across AI tools</div>
+  </div>
+  
+  <div class="content">
+    <div id="status-message" class="hidden"></div>
+    
+    <button id="capture-btn" class="button button-primary">
+      📋 Capture Context from This Page
+    </button>
+    
+    <button id="view-contexts-btn" class="button button-secondary">
+      📚 View Saved Contexts
+    </button>
+    
+    <div id="recent-contexts" class="hidden">
+      <p style="margin: 16px 0 8px; font-weight: 500; font-size: 13px;">Recent Contexts:</p>
+      <div id="contexts-list"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <a href="https://context-bridge-demo.vercel.app" target="_blank">Learn more</a> · 
+    <a href="https://github.com/gmdeo/context-bridge" target="_blank">GitHub</a>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
