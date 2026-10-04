@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Bridge - Stop Copy-Pasting Between AI Tools</title>
+  <meta name="description" content="Sync conversation context between ChatGPT, Claude, and other AI tools. Stop copy-pasting.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Hero -->
+  <div class="max-w-4xl mx-auto px-6 py-16 animate-fade-in">
+    <div class="text-center mb-12">
+      <div class="inline-block p-3 bg-blue-600 rounded-xl mb-4">
+        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+      </div>
+      
+      <h1 class="text-4xl font-bold mb-4">Context Bridge</h1>
+      <p class="text-xl text-gray-600 mb-8">Stop copy-pasting between AI tools</p>
+      
+      <div class="flex gap-4 justify-center">
+        <a href="https://github.com/gmdeo/context-bridge" 
+           class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+          Install Extension
+        </a>
+        <a href="#how-it-works" 
+           class="px-6 py-3 bg-white border-2 border-gray-300 rounded-lg font-medium hover:border-gray-400 transition">
+          Learn More
+        </a>
+      </div>
+    </div>
+    
+    <!-- Problem -->
+    <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+      <h2 class="text-lg font-semibold mb-3 text-red-900">The Problem</h2>
+      <blockquote class="text-red-800 italic mb-3">
+        "I'm constantly copying information back and forth between ChatGPT and Claude. 
+        Every time I switch tools, I basically have to start over."
+      </blockquote>
+      <p class="text-red-800 text-sm">
+        — Real user complaint from 15+ Reddit threads, October 2026
+      </p>
+    </div>
+    
+    <!-- Solution -->
+    <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+      <h2 class="text-2xl font-bold mb-6">Your context follows you</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div>
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-2xl">📋</span>
+          </div>
+          <h3 class="font-semibold mb-2">Capture</h3>
+          <p class="text-gray-600 text-sm">
+            Click "Capture" on ChatGPT. Context Bridge saves your full conversation.
+          </p>
+        </div>
+        
+        <div>
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-2xl">🔄</span>
+          </div>
+          <h3 class="font-semibold mb-2">Switch</h3>
+          <p class="text-gray-600 text-sm">
+            Switch to Claude. Your context is already synced and ready.
+          </p>
+        </div>
+        
+        <div>
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-2xl">✨</span>
+          </div>
+          <h3 class="font-semibold mb-2">Continue</h3>
+          <p class="text-gray-600 text-sm">
+            Click "Push" and keep working. No manual copy-paste.
+          </p>
+        </div>
+      </div>
+      
+      <div class="bg-gray-50 rounded-lg p-4 text-sm text-gray-600">
+        <strong>Privacy first:</strong> All data stored locally in your browser. 
+        No external servers, no cloud sync, no tracking.
+      </div>
+    </div>
+    
+    <!-- Research Evidence -->
+    <div id="how-it-works" class="bg-white rounded-lg p-8 shadow-sm mb-8">
+      <h2 class="text-2xl font-bold mb-4">Built from real user research</h2>
+      
+      <div class="space-y-4 mb-6">
+        <div class="border-l-4 border-blue-600 pl-4">
+          <p class="font-semibold">15+ complaints across Reddit, HackerNews, GitHub</p>
+          <p class="text-gray-600 text-sm">
+            "Every time I switch tools, I have to start over. ChatGPT doesn't know what I told Claude."
+          </p>
+        </div>
+        
+        <div class="border-l-4 border-blue-600 pl-4">
+          <p class="font-semibold">No existing solution</p>
+          <p class="text-gray-600 text-sm">
+            Foundation models won't solve this — requires cross-vendor coordination. 
+            The gap exists because nobody built the integration layer.
+          </p>
+        </div>
+        
+        <div class="border-l-4 border-blue-600 pl-4">
+          <p class="font-semibold">Newly possible in 2026</p>
+          <p class="text-gray-600 text-sm">
+            Long context is now baseline (10M tokens), making shared context more valuable. 
+            Browser extensions can access conversation APIs that didn't exist before.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Technical Details -->
+    <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+      <h2 class="text-2xl font-bold mb-4">How it works</h2>
+      
+      <div class="space-y-3 text-gray-700">
+        <p>
+          <strong>ChatGPT:</strong> Extracts conversations from the DOM using stable 
+          <code class="bg-gray-100 px-2 py-1 rounded text-sm">data-message-author-role</code> attributes.
+        </p>
+        
+        <p>
+          <strong>Claude:</strong> Uses Claude's REST API 
+          (<code class="bg-gray-100 px-2 py-1 rounded text-sm">/api/organizations/{'{orgId}'}/chat_conversations</code>) 
+          to capture full conversations including thinking blocks and tool calls that DOM scraping misses.
+        </p>
+        
+        <p>
+          <strong>Storage:</strong> IndexedDB for conversation history (handles large datasets efficiently), 
+          with coalesced writes to avoid Chrome storage rate limits.
+        </p>
+        
+        <p>
+          <strong>Architecture:</strong> Manifest V3 browser extension with event-driven service worker, 
+          quiescence detection for SPA stability (median 410ms vs 1500ms for fixed delays), 
+          and explicit cleanup patterns to prevent memory leaks.
+        </p>
+      </div>
+    </div>
+    
+    <!-- What This Unlocks -->
+    <div class="bg-blue-50 rounded-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold mb-4">What this research unlocks</h2>
+      
+      <p class="text-gray-700 mb-4">
+        The same architecture and research findings apply to:
+      </p>
+      
+      <ul class="space-y-2 text-gray-700">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">→</span>
+          <span><strong>Multi-tool memory systems:</strong> Cursor + VS Code + ChatGPT sync for developers</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">→</span>
+          <span><strong>Context window warnings:</strong> Alert users before conversation quality degrades</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">→</span>
+          <span><strong>AI memory conflict resolution:</strong> Detect contradictory facts and timestamp-based versioning</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">→</span>
+          <span><strong>Agent reliability infrastructure:</strong> 23% → 81% success with proper error handling</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">→</span>
+          <span><strong>Local AI appliances:</strong> One-click self-hosting with better UX</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Install -->
+    <div class="bg-gray-900 text-white rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Ready to stop copy-pasting?</h2>
+      <p class="text-gray-300 mb-6">
+        Context Bridge is open source and privacy-first. 
+        All data stays local in your browser.
+      </p>
+      
+      <div class="flex gap-4 justify-center">
+        <a href="https://github.com/gmdeo/context-bridge" 
+           class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+          View on GitHub
+        </a>
+        <a href="https://github.com/gmdeo/context-bridge/releases" 
+           class="px-6 py-3 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition">
+          Download Extension
+        </a>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="text-center mt-12 text-gray-500 text-sm">
+      <p>Built as part of the Build-a-Day project, October 4, 2026</p>
+      <p class="mt-2">
+        Research methodology: Seven parallel expert agents researching architecture, 
+        DOM patterns, storage, UX, code quality, pitfalls, and production readiness
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+extension/
+demo-site/node_modules/
+.DS_Store
+*.log
+.vercel
